@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script>
+      function apiCallListener() {
+        console.log(JSON.parse(this.responseText));
+      }
+
+      function bffCallListener() {
+        var apiCall = new XMLHttpRequest();
+        apiCall.onload = apiCallListener;
+        apiCall.open("GET", "https://localhost:4000", true);
+        apiCall.withCredentials = true;
+        apiCall.send(null);
+      }
+
+      var bffCall = new XMLHttpRequest();
+      bffCall.onload = bffCallListener;
+      bffCall.open("GET", "https://localhost:3000/", true);
+      bffCall.send();
+    </script>
+  </head>
+</html>
