@@ -7,8 +7,8 @@ router.get("/", function (req, res, next) {
   res.cookie("cookie", "accessToken", {
     maxAge: 900000,
     httpOnly: true,
-    sameSite: "none",
     secure: true,
+    sameSite: "none",
   });
   res.send({ service: "bff" });
 });

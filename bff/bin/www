@@ -6,20 +6,13 @@
 
 var app = require("../app");
 var debug = require("debug")("bff:server");
-// var http = require("http");
-var https = require("https");
+var http = require("http");
+// var https = require("https");
 var fs = require("fs");
 
-app.set(
-  "key",
-  fs.readFileSync(`${__dirname}/../../key.pem`, "utf8")
-);
-app.set(
-  "cert",
-  fs.readFileSync(`${__dirname}/../../cert.pem`, "utf8")
-);
-
-var credentials = { key: privateKey, cert: certificate };
+// var privateKey = fs.readFileSync(`${__dirname}/../bff-mcc-key.pem`, "utf8");
+// var certificate = fs.readFileSync(`${__dirname}/../bff-mcc-cert.pem`, "utf8");
+// var credentials = { key: privateKey, cert: certificate };
 
 /**
  * Get port from environment and store in Express.
@@ -32,8 +25,8 @@ app.set("port", port);
  * Create HTTP server.
  */
 
-// var server = http.createServer(app);
-var server = https.createServer(credentials, app);
+var server = http.createServer(app);
+// var server = https.createServer(credentials, app);
 
 /**
  * Listen on provided port, on all network interfaces.

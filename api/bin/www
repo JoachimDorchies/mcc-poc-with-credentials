@@ -20,15 +20,6 @@ app.set("port", port);
  * Create HTTP server.
  */
 
-app.set(
-  "key",
-  fs.readFileSync(`${__dirname}/../../key.pem`, "utf8")
-);
-app.set(
-  "cert",
-  fs.readFileSync(`${__dirname}/../../cert.pem`, "utf8")
-);
-
 var server = http.createServer(app);
 
 /**

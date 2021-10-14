@@ -9,14 +9,15 @@
       function bffCallListener() {
         var apiCall = new XMLHttpRequest();
         apiCall.onload = apiCallListener;
-        apiCall.open("GET", "https://localhost:4000", true);
+        apiCall.open("GET", "https://api-mcc.testlocal", true);
         apiCall.withCredentials = true;
         apiCall.send(null);
       }
 
       var bffCall = new XMLHttpRequest();
       bffCall.onload = bffCallListener;
-      bffCall.open("GET", "https://localhost:3000/", true);
+      bffCall.open("GET", "https://bff-mcc.testlocal/", true);
+      bffCall.withCredentials = true;
       bffCall.send();
     </script>
   </head>
